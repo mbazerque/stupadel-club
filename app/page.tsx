@@ -143,14 +143,14 @@ export default function HomePage() {
 
           <div className="grid grid-cols-1 md:grid-cols-6 gap-4 md:gap-5 auto-rows-[minmax(200px,auto)]">
             <FeatureCard
-              className="md:col-span-4 md:row-span-2"
+              className="md:col-span-4 md:row-span-2 md:border-t-0"
               icon={Shield}
               title="Canchas Panorámicas"
               description="Blindex de alta resistencia. Visión 360° para jugadores y público. Rebote perfecto en cada pared."
               big
             />
             <FeatureCard
-              className="md:col-span-2"
+              className="md:col-span-2 md:border-t-0"
               icon={Lightbulb}
               title="Iluminación LED Pro"
               description="Cero sombras, visibilidad perfecta a toda hora."
