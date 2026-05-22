@@ -1,10 +1,7 @@
-@import "tailwindcss" source(none);
-@source "../src";
-@import "tw-animate-css";
+@import url("https://cdn.jsdelivr.net/npm/tw-animate-css@1.4.0/dist/tw-animate.min.css");
+@import "tailwindcss";
 
-@custom-variant dark (&:is(.dark *));
-
-@theme inline {
+:root {
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
@@ -37,46 +34,64 @@
 
 :root {
   --radius: 0.75rem;
-  --background: oklch(0.14 0.01 240);
-  --foreground: oklch(0.98 0.005 240);
-  --card: oklch(0.18 0.012 240);
-  --card-foreground: oklch(0.98 0.005 240);
-  --popover: oklch(0.18 0.012 240);
-  --popover-foreground: oklch(0.98 0.005 240);
-  --primary: #0b66ff;
+  --background: oklch(0.08 0.012 240);
+  --foreground: oklch(0.995 0.004 240);
+  --card: oklch(0.11 0.014 240);
+  --card-foreground: oklch(0.995 0.004 240);
+  --popover: oklch(0.11 0.014 240);
+  --popover-foreground: oklch(0.995 0.004 240);
+  --primary: #2d7dff;
   --primary-foreground: #ffffff;
-  --secondary: oklch(0.22 0.015 240);
-  --secondary-foreground: oklch(0.98 0.005 240);
-  --muted: oklch(0.22 0.015 240);
-  --muted-foreground: oklch(0.68 0.02 240);
-  --accent: #0b66ff;
+  --secondary: oklch(0.16 0.016 240);
+  --secondary-foreground: oklch(0.995 0.004 240);
+  --muted: oklch(0.16 0.016 240);
+  --muted-foreground: oklch(0.88 0.02 240);
+  --accent: #2d7dff;
   --accent-foreground: #ffffff;
   --destructive: oklch(0.65 0.24 25);
   --destructive-foreground: oklch(0.98 0 0);
-  --border: oklch(0.28 0.018 240);
-  --input: oklch(0.22 0.015 240);
-  --ring: #0b66ff;
-  --neon: #0b66ff;
-  --neon-foreground: oklch(0.14 0.01 240);
-  --gradient-hero: linear-gradient(135deg, rgba(11,102,255,0.7), rgba(11,102,255,0.95));
-  --shadow-neon: 0 0 40px rgba(11,102,255,0.35), 0 0 80px rgba(11,102,255,0.2);
-  --shadow-neon-sm: 0 0 20px rgba(11,102,255,0.45);
+  --border: rgba(45,125,255,0.55);
+  --input: oklch(0.22 0.02 240);
+  --ring: #2d7dff;
+  --neon: #2d7dff;
+  --neon-foreground: oklch(0.11 0.012 240);
+  --gradient-hero: linear-gradient(135deg, rgba(45,125,255,0.58), rgba(3,7,18,0.18));
+  --shadow-neon: 0 0 34px rgba(45,125,255,0.5), 0 0 90px rgba(45,125,255,0.3);
+  --shadow-neon-sm: 0 0 18px rgba(45,125,255,0.72);
 }
 
 @layer base {
   * {
     border-color: var(--color-border);
   }
+
   html {
     scroll-behavior: smooth;
   }
+
   body {
-    background-color: var(--color-background);
+    background:
+      radial-gradient(circle at top, rgba(45,125,255,0.2), transparent 28%),
+      radial-gradient(circle at 18% 18%, rgba(45,125,255,0.14), transparent 24%),
+      linear-gradient(180deg, #01040c 0%, var(--color-background) 35%, #02050d 100%);
     color: var(--color-foreground);
     font-family: var(--font-sans);
     -webkit-font-smoothing: antialiased;
   }
-  h1, h2, h3, h4 {
+
+  a {
+    color: inherit;
+  }
+
+  ::selection {
+    background: rgba(45,125,255,0.38);
+    color: white;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
     font-family: var(--font-display);
     letter-spacing: -0.02em;
   }
@@ -92,13 +107,18 @@
     letter-spacing: 0.01em;
   }
   .text-shadow-neon {
-    text-shadow: 0 0 20px rgba(11,102,255,0.6);
+    text-shadow: 0 0 24px rgba(45,125,255,0.95);
   }
   .shadow-neon {
     box-shadow: var(--shadow-neon);
   }
   .shadow-neon-sm {
     box-shadow: var(--shadow-neon-sm);
+  }
+  .panel-glow {
+    background: linear-gradient(180deg, rgba(9,14,26,0.95), rgba(4,8,18,0.92));
+    box-shadow: 0 18px 60px rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(14px);
   }
   .gradient-hero {
     background: var(--gradient-hero);
