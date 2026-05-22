@@ -360,7 +360,7 @@ function FeatureCard({
 }) {
   return (
     <div
-      className={`group relative rounded-3xl border border-blue-500/45 bg-card p-6 md:p-8 overflow-hidden transition-all duration-500 hover:border-primary hover:-translate-y-1 transform-gpu will-change-transform panel-glow ${className}`}>
+      className={`group relative rounded-3xl border border-blue-500/45 bg-card p-6 md:p-8 overflow-hidden transition-all duration-500 hover:border-primary hover:-translate-y-1 transform-gpu will-change-transform panel-glow no-artifact ${className}`}>
       <div className="relative flex flex-col h-full">
         <div className="inline-flex items-center justify-center h-12 w-12 rounded-xl bg-primary/18 text-primary mb-5 border border-blue-500/20">
           <Icon className={big ? "h-7 w-7" : "h-6 w-6"} strokeWidth={2} />
@@ -386,7 +386,7 @@ function ServiceCard({
   description: string;
 }) {
   return (
-    <div className="group rounded-3xl border border-blue-500/45 bg-card p-7 hover:border-primary transition-all duration-300 hover:-translate-y-1 transform-gpu will-change-transform panel-glow">
+    <div className="group rounded-3xl border border-blue-500/45 bg-card p-7 hover:border-primary transition-all duration-300 hover:-translate-y-1 transform-gpu will-change-transform panel-glow no-artifact">
       <Icon className="h-9 w-9 text-primary mb-5 drop-shadow-[0_0_10px_rgba(29,102,255,0.7)]" strokeWidth={1.8} />
       <h3 className="font-display uppercase text-xl text-slate-50 mb-3">{title}</h3>
       <p className="text-slate-300 text-sm leading-relaxed">{description}</p>
