@@ -1,0 +1,436 @@
+import { createFileRoute } from "@tanstack/react-router";
+import { useState } from "react";
+import {
+  MessageCircle,
+  Shield,
+  Lightbulb,
+  Sparkles,
+  ShowerHead,
+  Beer,
+  Trophy,
+  GraduationCap,
+  Dumbbell,
+  MapPin,
+  Clock,
+  Phone,
+  Instagram,
+  Menu,
+  X,
+} from "lucide-react";
+import heroImg from "@/assets/hero-padel.jpg";
+import cantinaImg from "@/assets/cantina.jpg";
+import { WhatsAppFab } from "@/components/WhatsAppFab";
+
+export const Route = createFileRoute("/")({
+  component: Index,
+  head: () => ({
+    meta: [
+      { title: "STUPADEL CLUB | Canchas de padel" },
+      {
+        name: "description",
+        content:
+          "Club de pádel premium con canchas de blindex, iluminación LED profesional y cantina. Reservá tu turno por WhatsApp.",
+      },
+
+
+
+    ],
+  }),
+});
+
+const WHATSAPP_URL =
+  "https://api.whatsapp.com/send?phone=5493644729381";
+
+function Index() {
+  const [mobileOpen, setMobileOpen] = useState(false);
+  return (
+    <div className="min-h-screen bg-background text-foreground overflow-x-hidden">
+      {/* NAV */}
+      <header className="fixed top-0 inset-x-0 z-40 backdrop-blur-md bg-background/70 border-b border-border">
+        <nav className="max-w-7xl mx-auto px-5 md:px-8 py-4 flex items-center justify-between">
+          <a href="#hero" className="flex items-center gap-2">
+            <span className="h-2.5 w-2.5 rounded-full bg-primary shadow-neon-sm" />
+            <span className="font-display text-lg tracking-tight">STUPADEL</span>
+          </a>
+
+          <div className="hidden md:flex items-center gap-8 text-sm text-muted-foreground">
+            <a href="#instalaciones" className="hover:text-foreground transition-colors">Instalaciones</a>
+            <a href="#cantina" className="hover:text-foreground transition-colors">Cantina</a>
+            <a href="#servicios" className="hover:text-foreground transition-colors">Servicios</a>
+            <a href="#contacto" className="hover:text-foreground transition-colors">Contacto</a>
+          </div>
+
+          <a
+            href={WHATSAPP_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hidden sm:inline-flex items-center gap-2 rounded-full bg-primary text-primary-foreground px-4 py-2 text-sm font-semibold hover:opacity-90 transition"
+          >
+            <MessageCircle className="h-4 w-4" /> Reservar
+          </a>
+          <button
+            type="button"
+            aria-label="Abrir menú"
+            onClick={() => setMobileOpen((s) => !s)}
+            className="md:hidden ml-2 inline-flex items-center justify-center rounded-md p-2 text-muted-foreground hover:text-foreground focus:outline-none focus:ring-2 focus:ring-primary"
+          >
+            {mobileOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+          </button>
+        </nav>
+        {mobileOpen && (
+          <div className="md:hidden">
+            <div className="px-5 pb-4 space-y-3">
+              <a href="#instalaciones" onClick={() => setMobileOpen(false)} className="block text-lg font-medium text-foreground">Instalaciones</a>
+              <a href="#cantina" onClick={() => setMobileOpen(false)} className="block text-lg font-medium text-foreground">Cantina</a>
+              <a href="#servicios" onClick={() => setMobileOpen(false)} className="block text-lg font-medium text-foreground">Servicios</a>
+              <a href="#contacto" onClick={() => setMobileOpen(false)} className="block text-lg font-medium text-foreground">Contacto</a>
+              <a
+                href={WHATSAPP_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => setMobileOpen(false)}
+                className="mt-2 inline-flex w-full items-center justify-center gap-2 rounded-full bg-primary text-primary-foreground px-4 py-2 text-sm font-semibold hover:opacity-90 transition"
+              >
+                <MessageCircle className="h-4 w-4" /> Reservar
+              </a>
+            </div>
+          </div>
+        )}
+      </header>
+
+      {/* HERO */}
+      <section id="hero" className="relative min-h-screen flex items-center justify-center pt-20">
+        <img
+          src={heroImg}
+          alt="Cancha de pádel iluminada"
+          className="absolute inset-0 w-full h-full object-cover"
+          width={1920}
+          height={1280}
+        />
+        <div className="absolute inset-0 gradient-hero" />
+        <div className="absolute inset-0 bg-background/40" />
+
+        <div className="relative z-10 max-w-5xl mx-auto px-5 md:px-8 text-center animate-fade-in-up">
+          <span className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-slate-950/45 px-4 py-1.5 text-xs uppercase tracking-widest text-white/90 mb-6 shadow-lg backdrop-blur-md">
+            <span className="h-1.5 w-1.5 rounded-full bg-white animate-pulse" />
+            CANCHAS PREMIUM · EXPERIENCIA COMPLETA
+          </span>
+          <h1 className="font-italic-display text-6xl sm:text-7xl md:text-8xl lg:text-9xl leading-[0.9] uppercase">
+            Tu mejor <br />
+            <span className="text-primary text-shadow-neon">partido</span> <br />
+            empieza acá.
+          </h1>
+          <p className="mt-8 text-base md:text-xl text-muted-foreground max-w-2xl mx-auto">
+            Canchas premium, cafetería y el mejor ambiente para jugar cualquier día de la semana.
+          </p>
+          <div className="mt-10 flex justify-center">
+            <a
+              href={WHATSAPP_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group inline-flex items-center gap-3 rounded-full bg-primary text-primary-foreground px-7 sm:px-10 py-5 sm:py-6 text-base sm:text-lg font-bold shadow-neon hover:scale-105 transition-transform duration-300"
+            >
+              <MessageCircle className="h-6 w-6 sm:h-7 sm:w-7" strokeWidth={2.5} />
+              Reservar Ahora
+            </a>
+          </div>
+        </div>
+
+        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 text-xs uppercase tracking-widest text-muted-foreground/70">
+          ↓ Scroll
+        </div>
+      </section>
+
+      {/* INSTALACIONES */}
+      <section id="instalaciones" className="py-24 md:py-32 px-5 md:px-8">
+        <div className="max-w-7xl mx-auto">
+          <div className="max-w-3xl mb-14">
+            <p className="text-primary text-sm uppercase tracking-widest mb-3">01 — Instalaciones</p>
+            <h2 className="font-italic-display text-5xl md:text-7xl uppercase leading-none">
+              Equipamiento <span className="text-primary">premium</span>. Cero excusas.
+            </h2>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-6 gap-4 md:gap-5 auto-rows-[minmax(200px,auto)]">
+            <FeatureCard
+              className="md:col-span-4 md:row-span-2"
+              icon={Shield}
+              title="Canchas Panorámicas"
+              description="Blindex de alta resistencia. Visión 360° para jugadores y público. Rebote perfecto en cada pared."
+              big
+            />
+            <FeatureCard
+              className="md:col-span-2"
+              icon={Lightbulb}
+              title="Iluminación LED Pro"
+              description="Cero sombras, visibilidad perfecta a toda hora."
+            />
+            <FeatureCard
+              className="md:col-span-2"
+              icon={Sparkles}
+              title="Superficie Premium"
+              description="Los mejores materiales del mercado para un juego óptimo."
+            />
+            <FeatureCard
+              className="md:col-span-3"
+              icon={ShowerHead}
+              title="Vestuarios & Duchas"
+              description="Espacios amplios, agua caliente y lockers seguros para tus pertenencias."
+            />
+            <FeatureCard
+              className="md:col-span-3"
+              icon={Dumbbell}
+              title="Zona de Calentamiento"
+              description="Área dedicada para activar el cuerpo antes del primer saque."
+            />
+          </div>
+        </div>
+      </section>
+
+      {/* TERCER TIEMPO */}
+      <section id="cantina" className="py-24 md:py-32 px-5 md:px-8 bg-card/40">
+        <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-10 lg:gap-16 items-center">
+          <div className="relative rounded-3xl overflow-hidden aspect-[4/5] md:aspect-[4/4] shadow-neon-sm">
+            <img
+              src={cantinaImg}
+              alt="Cantina del club"
+              loading="lazy"
+              width={1280}
+              height={960}
+              className="w-full h-full object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent" />
+            <div className="absolute bottom-6 left-6 right-6 flex items-center gap-3">
+              <Beer className="h-6 w-6 text-primary" />
+              <span className="font-display text-sm uppercase tracking-widest">Después del partido</span>
+            </div>
+          </div>
+
+          <div>
+            <p className="text-primary text-sm uppercase tracking-widest mb-3">02 — El tercer tiempo</p>
+            <h2 className="font-italic-display text-5xl md:text-7xl uppercase leading-[0.95]">
+              El partido <span className="text-primary">no termina</span> en la cancha.
+            </h2>
+            <p className="mt-6 text-lg text-muted-foreground leading-relaxed">
+              Viví el tercer tiempo en nuestra cafetería: buen café, algo rico para comer y el espacio ideal para compartir después de cada partido.
+            </p>
+            <div className="mt-8 flex flex-wrap gap-3">
+              {["Cafe premium", "Tostados & Bakery", "Vista a la cancha", "Wifi & Relax"].map((tag) => (
+                <span
+                  key={tag}
+                  className="rounded-full border border-border bg-secondary/60 px-4 py-2 text-sm text-muted-foreground"
+                >
+                  {tag}
+                </span>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* SERVICIOS */}
+      <section id="servicios" className="py-24 md:py-32 px-5 md:px-8">
+        <div className="max-w-7xl mx-auto">
+          <div className="max-w-3xl mb-14">
+            <p className="text-primary text-sm uppercase tracking-widest mb-3">03 — Servicios</p>
+            <h2 className="font-italic-display text-5xl md:text-7xl uppercase leading-none">
+              Todo lo que necesitás para <span className="text-primary">jugar</span>.
+            </h2>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-5">
+            <ServiceCard
+              icon={Dumbbell}
+              title="Alquiler de Equipo"
+              description="Paletas y pelotas profesionales disponibles en recepción. No traés nada, jugás igual."
+            />
+            <ServiceCard
+              icon={GraduationCap}
+              title="Clases & Escuelita"
+              description="Profesores certificados para todos los niveles. Clases particulares, grupales y escuelita infantil."
+            />
+            <ServiceCard
+              icon={Trophy}
+              title="Torneos & Ligas"
+              description="Organizamos torneos por categoría y americanos. Sumate y competí cada semana."
+            />
+          </div>
+        </div>
+      </section>
+
+      {/* UBICACIÓN */}
+      <section id="contacto" className="py-24 md:py-32 px-5 md:px-8 bg-card/40">
+        <div className="max-w-7xl mx-auto">
+          <div className="max-w-3xl mb-14">
+            <p className="text-primary text-sm uppercase tracking-widest mb-3">04 — Ubicación</p>
+            <h2 className="font-italic-display text-5xl md:text-7xl uppercase leading-none">
+              Vení a <span className="text-primary">conocernos</span>.
+            </h2>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-5 lg:gap-8">
+            <div className="rounded-3xl overflow-hidden border border-border bg-secondary/40 aspect-[4/3] md:aspect-auto md:min-h-[420px] relative">
+                <div className="w-full h-full overflow-hidden rounded-3xl border border-border bg-secondary">
+                  <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3587.674303091797!2d-60.63428312381134!3d-25.94591695350618!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94404d175b1d9ff7%3A0xea0c4a949e20a594!2sSTUPADEL!5e0!3m2!1ses!2sar!4v1779470644253!5m2!1ses!2sar"
+                    width="600"
+                    height="450"
+                    style={{ border: 0 }}
+                    allowFullScreen
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                    className="h-full w-full"
+                    title="Ubicación de STUPADEL en Google Maps"
+                  />
+                </div>
+            </div>
+
+            <div className="space-y-5">
+              <InfoRow
+                icon={MapPin}
+                title="Dirección"
+                lines={["Juan José Castelli, Chaco, Argentina"]}
+              />
+              <InfoRow
+                icon={Clock}
+                title="Horarios"
+                lines={["Lunes a Lunes", "08:00 – 00:00 hs"]}
+              />
+              <InfoRow
+                icon={Phone}
+                title="Contacto"
+                lines={["+54 364 444-9444", "stupadelclub@gmail.com"]}
+              />
+              <InfoRow
+                icon={Instagram}
+                title="Seguinos"
+                lines={["@stupadelclub"]}
+                href="https://www.instagram.com/stupadelclub/"
+              />
+
+              <a
+                href={WHATSAPP_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-4 inline-flex items-center gap-3 rounded-full bg-primary text-primary-foreground px-8 py-5 text-base font-bold shadow-neon-sm hover:scale-105 transition-transform"
+              >
+                <MessageCircle className="h-5 w-5" strokeWidth={2.5} />
+                Reservar Turno
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* FOOTER */}
+      <footer className="border-t border-border py-10 px-5 md:px-8">
+        <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-muted-foreground">
+            <div className="flex items-center gap-2">
+            <span className="h-2 w-2 rounded-full bg-primary" />
+            <span className="font-display tracking-tight">STUPADEL CLUB</span>
+          </div>
+          <p>© {new Date().getFullYear()} STUPADEL CLUB. Todos los derechos reservados.</p>
+        </div>
+      </footer>
+
+      <WhatsAppFab />
+
+      {/* Google Fonts */}
+      <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap"
+      />
+    </div>
+  );
+}
+
+function FeatureCard({
+  icon: Icon,
+  title,
+  description,
+  className = "",
+  big = false,
+}: {
+  icon: typeof Shield;
+  title: string;
+  description: string;
+  className?: string;
+  big?: boolean;
+}) {
+  return (
+    <div
+      className={`group relative rounded-3xl border border-border bg-card p-6 md:p-8 overflow-hidden transition-all duration-500 hover:border-primary/50 hover:-translate-y-1 ${className}`}
+    >
+      <div className="absolute -top-12 -right-12 h-40 w-40 rounded-full bg-primary/10 blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+      <div className="relative flex flex-col h-full">
+        <div className="inline-flex items-center justify-center h-12 w-12 rounded-xl bg-primary/15 text-primary mb-5">
+          <Icon className={big ? "h-7 w-7" : "h-6 w-6"} strokeWidth={2} />
+        </div>
+        <h3 className={`font-display uppercase ${big ? "text-2xl md:text-4xl" : "text-xl md:text-2xl"} leading-tight`}>
+          {title}
+        </h3>
+        <p className="mt-3 text-muted-foreground text-sm md:text-base leading-relaxed">
+          {description}
+        </p>
+      </div>
+    </div>
+  );
+}
+
+function ServiceCard({
+  icon: Icon,
+  title,
+  description,
+}: {
+  icon: typeof Trophy;
+  title: string;
+  description: string;
+}) {
+  return (
+    <div className="group rounded-3xl border border-border bg-card p-7 hover:border-primary/50 transition-all duration-300 hover:-translate-y-1">
+      <Icon className="h-9 w-9 text-primary mb-5" strokeWidth={1.8} />
+      <h3 className="font-display uppercase text-xl mb-3">{title}</h3>
+      <p className="text-muted-foreground text-sm leading-relaxed">{description}</p>
+    </div>
+  );
+}
+
+function InfoRow({
+  icon: Icon,
+  title,
+  lines,
+  href,
+}: {
+  icon: typeof MapPin;
+  title: string;
+  lines: string[];
+  href?: string;
+}) {
+  return (
+    <div className="flex gap-4 rounded-2xl border border-border bg-card p-5">
+      <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-primary/15 text-primary">
+        <Icon className="h-5 w-5" />
+      </div>
+      <div>
+        <p className="text-xs uppercase tracking-widest text-muted-foreground mb-1">{title}</p>
+        {lines.map((l) =>
+          href ? (
+            <a
+              key={l}
+              href={href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block text-foreground font-medium hover:text-primary transition-colors"
+            >
+              {l}
+            </a>
+          ) : (
+            <p key={l} className="text-foreground font-medium">
+              {l}
+            </p>
+          ),
+        )}
+      </div>
+    </div>
+  );
+}
