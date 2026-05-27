@@ -40,6 +40,7 @@ export default function HomePage() {
             <a href="#instalaciones" className="hover:text-foreground transition-colors">Instalaciones</a>
             <a href="#cantina" className="hover:text-foreground transition-colors">Cantina</a>
             <a href="#servicios" className="hover:text-foreground transition-colors">Servicios</a>
+            <a href="https://stupadel.mitiendanube.com/" target="_blank" rel="noopener noreferrer" className="hover:text-foreground transition-colors">Tienda</a>
             <a href="#contacto" className="hover:text-foreground transition-colors">Contacto</a>
           </div>
 
@@ -67,6 +68,7 @@ export default function HomePage() {
               <a href="#instalaciones" onClick={() => setMobileOpen(false)} className="block text-lg font-medium text-foreground">Instalaciones</a>
               <a href="#cantina" onClick={() => setMobileOpen(false)} className="block text-lg font-medium text-foreground">Cantina</a>
               <a href="#servicios" onClick={() => setMobileOpen(false)} className="block text-lg font-medium text-foreground">Servicios</a>
+              <a href="https://stupadel.mitiendanube.com/" target="_blank" rel="noopener noreferrer" onClick={() => setMobileOpen(false)} className="block text-lg font-medium text-foreground">Tienda</a>
               <a href="#contacto" onClick={() => setMobileOpen(false)} className="block text-lg font-medium text-foreground">Contacto</a>
               <a
                 href={WHATSAPP_URL}
