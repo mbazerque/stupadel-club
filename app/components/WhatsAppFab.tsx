@@ -1,7 +1,7 @@
 "use client";
 import { MessageCircle } from "lucide-react";
 
-const WHATSAPP_URL = "https://wa.me/5491100000000?text=Hola!%20Quiero%20reservar%20un%20turno%20de%20p%C3%A1del.";
+const WHATSAPP_URL = "https://api.whatsapp.com/send?phone=5493644729381&text=Hola!%20Quiero%20reservar%20un%20turno%20de%20p%C3%A1del.";
 
 export function WhatsAppFab() {
   return (
