@@ -296,7 +296,7 @@ export default function HomePage() {
               <InfoRow
                 icon={Clock}
                 title="Horarios"
-                lines={["Lunes a Lunes", "08:00 – 00:00 hs"]}
+                lines={["Lunes a Lunes", "14:00 – 23:00 hs"]}
               />
               <InfoRow
                 icon={Phone}
